@@ -1,0 +1,50 @@
+import React from 'react';
+import { PageHero } from '../components/layout/PageHero';
+import { CompanyOverview } from '../components/about/CompanyOverview';
+import { MissionVision } from '../components/about/MissionVision';
+import { NationalFootprint } from '../components/about/NationalFootprint';
+import { CoreStrengths } from '../components/about/CoreStrengths';
+import { ManufacturingProcess } from '../components/about/ManufacturingProcess';
+import { QualityAssurance } from '../components/about/QualityAssurance';
+import { ResearchAndDevelopment } from '../components/about/ResearchAndDevelopment';
+import { Decarbonisation } from '../components/about/Decarbonisation';
+import { ClientSuccess } from '../components/about/ClientSuccess';
+import { IndustrialApplications } from '../components/about/IndustrialApplications';
+import { imageSet } from '../data/siteData';
+import { ArrowRight } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import { Reveal } from '../components/common/Reveal';
+import { CTASection } from '../components/home/CTASection';
+
+export default function AboutPage() {
+    return (
+        <main className="pb-12">
+            {/* SECTION 1: Page Hero */}
+            <PageHero
+                label="About the company"
+                title="Powering Industries with Smart Biomass Heating Solutions"
+                subtitle="Nature Organic Energy is a trusted manufacturer of industrial pellet burners designed for high performance, durability, and fuel efficiency. Our systems are engineered for industries seeking sustainable and cost-effective heating alternatives. With advanced manufacturing facilities and experienced technical teams, we deliver reliable heating systems across India."
+                image={imageSet.factoryHall}
+            />
+
+            <CompanyOverview />
+            <MissionVision />
+            <NationalFootprint />
+            <CoreStrengths />
+            <ManufacturingProcess />
+            <QualityAssurance />
+            <ResearchAndDevelopment />
+            <Decarbonisation />
+            <ClientSuccess />
+            <IndustrialApplications />
+
+            <CTASection
+                label="About Our Company"
+                title="Ready to Upgrade Your Plant?"
+                text="Join hundreds of Indian manufacturers who have permanently dropped their fuel bills. Let our experts run a free thermal ROI audit for your boiler system today."
+                primaryBtn={{ text: "Talk To Our Engineers", to: "/contact" }}
+                secondaryBtn={{ text: "Explore Our Burners", to: "/products" }}
+            />
+        </main>
+    );
+}

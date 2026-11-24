@@ -1,0 +1,30 @@
+import React from 'react';
+import { motion } from 'framer-motion';
+import { Factory, Cpu, Zap, MapPin, Headset, Plane } from 'lucide-react';
+import { SectionTitle } from '../common/SectionTitle';
+import { stagger, fadeUp, cardBase } from '../../constants/siteConstants';
+
+const Motion = motion;
+
+export function WhyChooseUs() {
+    return (
+        <section className="mx-auto mt-6 w-[min(1280px,94vw)] rounded-[24px] border border-[#DCE3E6] bg-[#F2F6F7] p-6 md:p-9">
+            <SectionTitle label="Why Choose Us?" title="Industrial trust built on engineering, manufacturing, and support" />
+            <Motion.div className="mt-6 grid gap-4 md:grid-cols-2 xl:grid-cols-6" variants={stagger} initial="hidden" whileInView="show" viewport={{ once: false }}>
+                {[
+                    { title: 'In-House Manufacturing', icon: Factory },
+                    { title: 'Advanced Automation Technology', icon: Cpu },
+                    { title: 'Energy Efficient Design', icon: Zap },
+                    { title: 'PAN India Installation Support', icon: MapPin },
+                    { title: 'After-Sales Service & Technical Assistance', icon: Headset },
+                    { title: 'Export-Ready Systems', icon: Plane },
+                ].map((item) => (
+                    <Motion.article key={item.title} variants={fadeUp} className={`${cardBase} p-4`}>
+                        <item.icon size={20} className="text-[#078DA4]" />
+                        <h3 className="mt-3 text-sm font-semibold leading-snug text-[#354653]">{item.title}</h3>
+                    </Motion.article>
+                ))}
+            </Motion.div>
+        </section>
+    );
+}
